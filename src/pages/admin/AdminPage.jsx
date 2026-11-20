@@ -918,7 +918,7 @@ export default function AdminPage({
       
       {/* 1. Sidebar Navigation */}
       <aside className={`
-        fixed md:sticky top-0 left-0 z-40 h-screen w-64 bg-slate-900 text-white flex flex-col shrink-0 overflow-hidden transition-transform duration-300
+        fixed top-0 left-0 bottom-0 z-40 h-screen h-[100dvh] w-64 bg-slate-900 text-white flex flex-col shrink-0 border-r border-slate-800 transition-transform duration-300
         ${mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
       `}>
         {/* Top: Brand info */}
@@ -944,7 +944,7 @@ export default function AdminPage({
         </div>
 
         {/* Navigation Links: Dashboard, Orders, Products, Category, Enquiry, Customers, Reviews, Settings */}
-        <div className="flex-1 overflow-y-auto min-h-0 p-3 space-y-1">
+        <div className="flex-1 overflow-y-auto min-h-0 p-3 space-y-1 admin-sidebar-scroll">
           <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1">
             Store Management
           </div>
@@ -1094,12 +1094,12 @@ export default function AdminPage({
           </div>
 
         {/* Bottom User Profile & Actions */}
-        <div className="shrink-0 p-3 sm:p-4 border-t border-slate-800 space-y-2 bg-slate-950/40">
+        <div className="shrink-0 p-3 border-t border-slate-800 space-y-2 bg-slate-950/80">
           <div className="bg-slate-800/80 p-2.5 rounded-xl border border-slate-700/60 flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-red-600 text-white font-bold flex items-center justify-center text-xs shrink-0">
               A
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1">
               <span className="font-bold text-xs text-white block truncate">admin@madhusri.com</span>
               <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
                 <ShieldCheck className="w-3 h-3" /> Super Admin
@@ -1134,7 +1134,7 @@ export default function AdminPage({
       )}
 
       {/* 2. Main Content View Area */}
-      <div className="flex-1 flex flex-col min-h-screen min-w-0 overflow-x-hidden">
+      <div className="flex-1 flex flex-col min-h-screen min-w-0 md:ml-64 overflow-x-hidden">
         
         {/* Top Navbar Header */}
         <header className="bg-white border-b border-slate-200 px-4 sm:px-8 py-4 flex items-center justify-between sticky top-0 z-20 shadow-sm">
