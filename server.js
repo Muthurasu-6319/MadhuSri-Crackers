@@ -517,8 +517,13 @@ app.use((req, res) => {
   res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`\n🎇 Madhu Sri Crackers Backend API Server running at http://localhost:${PORT}`);
-  console.log(`📊 Connected to TiDB Cloud Database: ${process.env.DB_NAME} (${process.env.DB_HOST})\n`);
-});
+// Export app for Vercel Serverless Functions
+export default app;
+
+// Start Server locally if not running on Vercel
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`\n🎇 Madhu Sri Crackers Backend API Server running at http://localhost:${PORT}`);
+    console.log(`📊 Connected to TiDB Cloud Database: ${process.env.DB_NAME} (${process.env.DB_HOST})\n`);
+  });
+}

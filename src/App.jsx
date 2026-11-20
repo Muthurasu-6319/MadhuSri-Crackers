@@ -29,7 +29,26 @@ import { categories as initialCategories, allProducts as initialProducts } from 
 import { fetchCategoriesApi, fetchProductsApi, fetchDatabaseHealth } from './utils/api';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home'); // 'home' | 'shop' | 'cart' | 'wishlist' | 'enquiry' | 'about' | 'contact' | 'admin'
+  const [currentPage, setCurrentPage] = useState(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const path = window.location.pathname;
+        const hash = window.location.hash;
+        if (path.startsWith('/admin') || hash === '#/admin' || hash === '#admin') {
+          return 'admin';
+        }
+        if (path.startsWith('/shop') || hash === '#/shop') return 'shop';
+        if (path.startsWith('/cart') || hash === '#/cart') return 'cart';
+        if (path.startsWith('/wishlist') || hash === '#/wishlist') return 'wishlist';
+        if (path.startsWith('/enquiry') || hash === '#/enquiry') return 'enquiry';
+        if (path.startsWith('/about') || hash === '#/about') return 'about';
+        if (path.startsWith('/contact') || hash === '#/contact') return 'contact';
+      }
+    } catch (e) {
+      console.error('Error reading initial route:', e);
+    }
+    return 'home';
+  });
   const [shopCategory, setShopCategory] = useState('all');
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState(new Set());
