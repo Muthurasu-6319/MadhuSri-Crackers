@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <!-- Flame Glow -->
+    <radialGradient id="flameGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff7a3" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#ffb300" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#ff5722" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d84315" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Clay Diya Gradient -->
+    <linearGradient id="clayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e65100"/>
+      <stop offset="50%" stop-color="#bf360c"/>
+      <stop offset="100%" stop-color="#8d2607"/>
+    </linearGradient>
+    <!-- Gold Rim -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffe082"/>
+      <stop offset="50%" stop-color="#ffb300"/>
+      <stop offset="100%" stop-color="#ffd54f"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Light Halo -->
+  <circle cx="60" cy="50" r="42" fill="url(#flameGlow)" opacity="0.85" filter="url(#glow)"/>
+
+  <!-- Sparkle Stars -->
+  <g fill="#ffd54f" opacity="0.9">
+    <circle cx="28" cy="35" r="2"/>
+    <circle cx="92" cy="32" r="2.5"/>
+    <circle cx="85" cy="18" r="1.5"/>
+    <circle cx="36" cy="20" r="1.5"/>
+    <polygon points="98,45 100,48 103,48 101,50 102,53 99,51 97,53 98,50 95,48 98,48" transform="scale(0.8) translate(25,-5)"/>
+  </g>
+
+  <!-- Outer Flame -->
+  <path d="M60 22 C64 36 72 45 69 56 C67 62 64 65 60 65 C56 65 53 62 51 56 C48 45 56 36 60 22 Z" fill="#ff9100"/>
+  <!-- Mid Flame -->
+  <path d="M60 28 C63 38 68 46 66 54 C64 59 62 61 60 61 C58 61 56 59 54 54 C52 46 57 38 60 28 Z" fill="#ffd600"/>
+  <!-- Core White Flame -->
+  <path d="M60 38 C61.5 44 64 49 63 54 C62 57 61 58 60 58 C59 58 58 57 57 54 C56 49 58.5 44 60 38 Z" fill="#ffffff"/>
+
+  <!-- Diya Base (Traditional Clay Lamp) -->
+  <path d="M22 66 Q60 102 98 66 C95 62 90 60 84 60 L36 60 C30 60 25 62 22 66 Z" fill="url(#clayGrad)"/>
+  <!-- Rim Highlight -->
+  <ellipse cx="60" cy="62" rx="38" ry="6" fill="url(#goldRim)"/>
+  <ellipse cx="60" cy="63" rx="34" ry="4" fill="#a72b05"/>
+
+  <!-- Ornate Diya Pattern Lines -->
+  <path d="M35 72 Q60 92 85 72" stroke="#ffe082" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="48" cy="80" r="1.5" fill="#ffe082"/>
+  <circle cx="60" cy="83" r="2" fill="#ffe082"/>
+  <circle cx="72" cy="80" r="1.5" fill="#ffe082"/>
+
+  <!-- Base Stand -->
+  <path d="M46 95 L74 95 L70 99 L50 99 Z" fill="#751b03"/>
+</svg>

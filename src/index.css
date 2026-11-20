@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-red: #c8102e;
+  --primary-dark-red: #991b1b;
+  --primary-crimson: #b31217;
+  --accent-gold: #ffb703;
+  --accent-yellow: #f59e0b;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c8102e;
+}
+
+/* Selection Color */
+::selection {
+  background-color: #c8102e;
+  color: #ffffff;
+}
+
+/* Flame Flicker Animation */
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-0.5deg);
+    filter: drop-shadow(0 0 10px rgba(255, 183, 3, 0.85));
+  }
+  50% {
+    transform: scale(1.08) rotate(1deg);
+    filter: drop-shadow(0 0 18px rgba(255, 100, 0, 0.95));
+  }
+}
+
+.diya-flame-animated {
+  animation: flameFlicker 2.4s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+/* Soft Floating Animation */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.hero-float-animation {
+  animation: softFloat 3.5s ease-in-out infinite;
+}
+
+/* Shimmer Button Effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(25deg) translateY(-100%);
+  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-shimmer:hover::after {
+  transform: rotate(25deg) translateY(100%);
+}
+
+/* Glowing Border Effect on Hover */
+.festive-card {
+  position: relative;
+  background: #ffffff;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.festive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(200, 16, 46, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Section Title Decorative Line */
+.section-title-line {
+  height: 3px;
+  width: 48px;
+  background: linear-gradient(90deg, #c8102e 0%, #ffb703 100%);
+  border-radius: 9999px;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.glass-badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Radar Pulse for Live Status */
+@keyframes pulseRadar {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.radar-online {
+  animation: pulseRadar 2s infinite;
+}
+
+/* Fade In Keyframe */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

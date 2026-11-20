@@ -1,0 +1,207 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary-red: #d32f2f;
+  --primary-dark-red: #b71c1c;
+  --primary-crimson: #c8102e;
+  --accent-gold: #ffb300;
+  --accent-yellow: #f59e0b;
+  --charcoal: #1e293b;
+  --light-bg: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1e293b;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d32f2f;
+}
+
+/* Flame & Diya Glow Animations */
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-0.5deg);
+    filter: drop-shadow(0 0 10px rgba(255, 179, 0, 0.8));
+  }
+  50% {
+    transform: scale(1.04) rotate(0.8deg);
+    filter: drop-shadow(0 0 16px rgba(255, 111, 0, 0.9));
+  }
+}
+
+.diya-flame-animated {
+  animation: flameFlicker 2.5s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+/* Floating Animation for Hero Showcase */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.hero-float-animation {
+  animation: softFloat 4s ease-in-out infinite;
+}
+
+/* Pulse Glow for Festival Badges */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(211, 47, 47, 0);
+  }
+}
+
+.pulse-badge {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* Sparkle Star Rotate */
+@keyframes sparkleSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.sparkle-icon {
+  animation: sparkleSpin 8s linear infinite;
+}
+
+/* Card Hover Elevation */
+.category-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 28px -10px rgba(211, 47, 47, 0.15);
+}
+
+.product-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 30px -12px rgba(211, 47, 47, 0.18);
+}
+
+/* Section Title Decorative Lines */
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.section-title-line {
+  height: 2px;
+  width: 48px;
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+/* Shimmer Button Effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(25deg) translateY(-100%);
+  transition: transform 0.75s ease;
+}
+.btn-shimmer:hover::after {
+  transform: rotate(25deg) translateY(100%);
+}
+
+/* Hero Canvas Overlay */
+#hero-fireworks-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Drawer & Modal Transitions */
+.drawer-backdrop {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.drawer-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-drawer-content {
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cart-drawer-content.active {
+  transform: translateX(0);
+}
+
+.search-modal-container {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.95);
+  transition: all 0.25s ease;
+}
+.search-modal-container.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* Toast Notifications */
+#toast-notification {
+  transform: translateY(120%);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
